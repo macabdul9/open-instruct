@@ -7,10 +7,10 @@ echo "Training llama model ${MODEL_SIZE} using $NUM_GPUS GPUs, $BATCH_SIZE_PER_G
 
 deepspeed open_instruct/finetune_trainer.py \
     --deepspeed ds_configs/stage3_no_offloading.conf \
-    --model_name_or_path /net/nfs.cirrascale/allennlp/yizhongw/hf_llama_models/${MODEL_SIZE} \
-    --tokenizer_name /net/nfs.cirrascale/allennlp/yizhongw/hf_llama_models/${MODEL_SIZE} \
+    --model_name_or_path decapoda-research/llama-7b-hf \
+    --tokenizer_name decapoda-research/llama-7b-hf \
     --use_fast_tokenizer False \
-    --train_file data/processed/alpaca_data_original_template.jsonl \
+    --train_file data/processed/oasst1/oasst1_data.jsonl\
     --max_seq_length 512 \
     --do_train \
     --per_device_train_batch_size $BATCH_SIZE_PER_GPU \
@@ -24,8 +24,7 @@ deepspeed open_instruct/finetune_trainer.py \
     --save_strategy epoch \
     --save_total_limit 1 \
     --num_train_epochs 3 \
-    --output_dir output/alpaca_${MODEL_SIZE}/ \
-    --bf16 \
-    --tf32 True \
+    --output_dir output/oasst1_7b_lora/ \
+    --fp16 \
     --overwrite_output_dir \
     --report_to "none" \

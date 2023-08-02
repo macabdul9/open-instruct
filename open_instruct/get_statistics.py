@@ -13,7 +13,7 @@ def get_statistics_for_messages_data(data_path):
     # load dataset
     dataset = load_dataset("json", data_files={"train": data_path})
     # tokenize dataset
-    tokenizer = AutoTokenizer.from_pretrained("/net/nfs.cirrascale/allennlp/yizhongw/hf_llama_models/7B", use_fast=False)
+    tokenizer = AutoTokenizer.from_pretrained("decapoda-research/llama-7b-hf", use_fast=False)
     # get statistics
     num_instances = len(dataset["train"])
     num_of_turns = [len(instance["messages"]) for instance in dataset["train"]]

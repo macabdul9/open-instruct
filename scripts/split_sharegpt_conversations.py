@@ -93,6 +93,7 @@ def main(args):
     content = []
     for file in args.in_files:
         content.extend(json.load(open(file)))
+    # import pdb; pdb.set_trace()
     tokenizer = transformers.AutoTokenizer.from_pretrained(
         args.model_name_or_path,
         padding_side="right",

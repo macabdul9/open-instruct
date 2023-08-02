@@ -15,7 +15,6 @@ accelerate launch \
     --deepspeed_config_file ds_configs/stage3_no_offloading_accelerate.conf \
     open_instruct/finetune.py \
     --model_name_or_path /net/nfs.cirrascale/allennlp/yizhongw/hf_llama_models/${MODEL_SIZE} \
-    --use_flash_attn \
     --tokenizer_name /net/nfs.cirrascale/allennlp/yizhongw/hf_llama_models/${MODEL_SIZE} \
     --use_slow_tokenizer \
     --train_file data/processed/oasst1/oasst1_data.jsonl\

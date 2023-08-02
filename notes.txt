@@ -1,0 +1,13 @@
+# Training notes
+## 512 (Working configuration)
+model=LLaMa-7b bs_per_device=1 cumulative_bs=128 max_seq_len=512 training=lora+fp16 datasets=oasst1 size=55405 time=~3hrs master_gpu_mem_consumption=~17G/40G
+model=LLaMa-7b bs_per_device=4 cumulative_bs=128 max_seq_len=512 training=lora+fp16 datasets=oasst1 size=55405 time=~1hr master_gpu_mem_consumption=39319MiB/40960MiB
+
+
+# 1024
+model=LLaMa-7b bs_per_device=1 cumulative_bs=128 max_seq_len=1024 training=lora+fp16 datasets=oasst1 size=55405 time=~3.5hrs master_gpu_mem_consumption=~30945MiB / 40960MiB
+
+LLaMa-7b bs_per_device=1 cumulative_bs=128 max_seq_len=512 lora+fp16 datasets=oasst1 size=55405 time ~3hrs
+
+
+39319MiB / 40960MiB
